@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var friends = [
+    @StateObject var friendsManager = FriendsManager()
+    
+    @State var friends = [
         Friends(name: "Yun Jun", favDoraCharacter: "Dora", gender: "Female", likeBigRedChicken: true, colourOfBoots: "Purple"),
         Friends(name: "Alina", favDoraCharacter: "Big mac chicken", gender: "Female", likeBigRedChicken: false, colourOfBoots: "colourless"),
         Friends(name: "Kaitlyn", favDoraCharacter: "Yun Jun", gender: "Pineapple", likeBigRedChicken: false, colourOfBoots: "white"),
@@ -20,17 +22,22 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-            
-            List(friends) { friend in
+            List{
+                ForEach($friends) { $friend in
+                    NavigationLink{
+                        DetailView(friend: $friend)
+                    } label: {
+                        Text(friend.name)
+                    }
                 
-                Text(friend.name)
+      
                 
             }
             .navigationTitle("Friend List")
-            
+            }
         }
 
-        Text("Hello World")
+       
 
         
     }
