@@ -8,11 +8,12 @@
 import Foundation
 
 struct Friends {
+    var id = UUID()
     
     var name: String
     var favDoraCharacter: String
     var gender: String
-    var likeBigRedChicken: Bool = false
+    var likeBigRedChicken: Bool 
     var colourOfBoots: String
     
 }
