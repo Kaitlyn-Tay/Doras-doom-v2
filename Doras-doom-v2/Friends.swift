@@ -13,5 +13,6 @@ struct Friends {
     var favDoraCharacter: String
     var gender: String
     var likeBigRedChicken: Bool = false
+    var colourOfBoots: String
     
 }
